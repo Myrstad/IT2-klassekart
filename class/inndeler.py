@@ -1,4 +1,5 @@
 import random
+import os
 
 class Inndeler:
   def __init__(self, antall_grupper = None, gruppestørrelse = 2, fil_navm='elever.txt') -> None:
@@ -8,7 +9,6 @@ class Inndeler:
     if gruppestørrelse:
       self.elev_liste = self.del_per_gruppestørrelse(gruppestørrelse)
     print(self.elev_liste)
-    print(self.elever)
 
   @staticmethod
   def hent_elever(fil_navn):
@@ -17,6 +17,10 @@ class Inndeler:
       elever = tekst.split('\n')
       random.shuffle(elever)
       return elever
+    
+  def lagre_grupper(self, filnavn):
+    with open(filnavn, '+w', encoding='utf-8') as fil:
+      fil.write(str(self.elev_liste))
 
   def del_per_antall_grupper(self, antall_grupper: int) -> list[str]:
     elever = self.elever[:]
@@ -38,8 +42,7 @@ class Inndeler:
   def del_per_gruppestørrelse(self, størrelse: int) -> list[str]:
     elever = self.elever[:]
     antall_grupper = len(elever) // størrelse
-    rest = len(elever) // størrelse
-
+    rest = len(elever) % størrelse
     grupper = [[] for _ in range(antall_grupper)]
 
     for i in range(antall_grupper):
@@ -52,5 +55,10 @@ class Inndeler:
     return grupper
   
 if __name__ == '__main__':
-  i = Inndeler(None, 2)
-
+  i = Inndeler(antall_grupper=None, gruppestørrelse=2)
+  print(os.path.join(os.getcwd(), 'data', '2er-grupper.txt'))
+  i.lagre_grupper(os.path.join(os.getcwd(), 'data', '2er-grupper.txt'))
+  j = Inndeler(7)
+  j.lagre_grupper(os.path.join(os.getcwd(), 'data', '7-grupper.txt'))
+  k = Inndeler(None, 1)
+  k.lagre_grupper(os.path.join(os.getcwd(), 'data', '1er.txt'))
