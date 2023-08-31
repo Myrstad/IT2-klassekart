@@ -5,7 +5,6 @@ class Kart():
   def __init__(self, kolonner, fil_navn) -> None:
     self.grupper = self.hent_grupper(fil_navn)
     self.kolonner = kolonner
-    self.grid = None
 
   
 

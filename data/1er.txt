@@ -1,1 +1,1 @@
-[['David'], ['Henrik'], ['Gustav'], ['Lukas'], ['Ulrik'], ['Johannes'], ['Morten'], ['Hooman'], ['Moritz'], ['Eirik'], ['Erik'], ['Mathilde'], ['Vebjørn'], ['Tor']]
+[['Moritz'], ['Hooman'], ['Gustav'], ['Erik'], ['Ulrik'], ['Tor'], ['Eirik'], ['Vebjørn'], ['Johannes'], ['Mathilde'], ['Lukas'], ['Henrik'], ['Morten'], ['David']]
